@@ -6,8 +6,8 @@ const { FORGOT_LINK_URL } = process.env;
 class SendForgotMailUseCase {
   constructor(private mailProvider: IMailProvider) {}
 
-  async execute(user: User): Promise<void> {
-    const { token, email, firstname } = user;
+  async execute(data: User): Promise<void> {
+    const { token, email, firstname } = data;
 
     const templatePath = resolve(
       __dirname,
