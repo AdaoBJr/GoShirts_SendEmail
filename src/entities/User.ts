@@ -1,4 +1,5 @@
 class User {
+  token: string;
   email: string;
   firstname: string;
   lastname: string;
