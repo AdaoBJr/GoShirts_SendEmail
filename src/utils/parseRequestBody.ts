@@ -4,10 +4,10 @@ function parseRequestBody(request: Request) {
   const requestBody = request.body;
 
   const requestGraphQL = requestBody.input?.data || requestBody.input;
-  const { email, firstname, lastname } = requestGraphQL || requestBody;
+  const body = requestGraphQL || requestBody;
   const token = request.headers.authorization;
 
-  return { token, email, firstname, lastname };
+  return { token, body };
 }
 
 export { parseRequestBody };
