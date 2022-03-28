@@ -1,22 +1,16 @@
-import { IGoShirtsProvider } from 'src/providers/GoShirtsProvider/IGoShirtsProvider';
 import { IMailProvider } from 'src/providers/MailProvider/IMailProvider';
 import { templatePathEmail } from 'src/utils';
-const { HOMEPAGE_GOSHIRTS_URL } = process.env;
+const { UNSUBSCRIBE_URL } = process.env;
 
 class SendWelcomeNewsletterUseCase {
-  constructor(
-    private mailProvider: IMailProvider,
-    private goShirtsProvider: IGoShirtsProvider
-  ) {}
+  constructor(private mailProvider: IMailProvider) {}
 
   async execute(email: string) {
     const templatePath = templatePathEmail('welcomeNewsletter.hbs');
 
     const variables = {
-      link: `${HOMEPAGE_GOSHIRTS_URL}`,
+      link: `${UNSUBSCRIBE_URL}${email}`,
     };
-
-    await this.goShirtsProvider.sendWelcomeNewsletter(email);
 
     await this.mailProvider.sendMail(
       email,
