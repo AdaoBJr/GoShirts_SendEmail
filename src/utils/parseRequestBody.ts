@@ -10,4 +10,4 @@ function parseRequestBody(request: Request) {
   return { token, body };
 }
 
-export { parseRequestBody };
+export default parseRequestBody;
