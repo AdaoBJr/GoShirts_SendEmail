@@ -1,6 +1,6 @@
 import { IMailProvider } from 'src/providers/MailProvider/IMailProvider';
-import { resolve } from 'path';
 import { User } from 'src/entities/User';
+import templatePathEmail from 'src/utils/templatePathEmail';
 const { FORGOT_LINK_URL } = process.env;
 
 class SendForgotMailUseCase {
@@ -9,14 +9,7 @@ class SendForgotMailUseCase {
   async execute(data: User): Promise<void> {
     const { token, email, firstname } = data;
 
-    const templatePath = resolve(
-      __dirname,
-      '..',
-      '..',
-      'views',
-      'emails',
-      'forgotPassword.hbs'
-    );
+    const templatePath = templatePathEmail('forgotPassword.hbs');
 
     const variables = {
       name: firstname,
