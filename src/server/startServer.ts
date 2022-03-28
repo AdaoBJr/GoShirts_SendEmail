@@ -1,5 +1,4 @@
 import 'dotenv/config';
-import '../infra/mongodb/connection';
 import express, { NextFunction, Request, Response } from 'express';
 import { router } from '../routers';
 import ApiError from 'src/errors';
