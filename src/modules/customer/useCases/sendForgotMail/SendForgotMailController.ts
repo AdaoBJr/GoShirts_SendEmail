@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { parseRequestBody } from 'src/utils/parseRequestBody';
+import { parseRequestBody } from 'src/utils';
 import { SendForgotMailUseCase } from './SendForgotMailUseCase';
 
 class SendForgotMailController {
