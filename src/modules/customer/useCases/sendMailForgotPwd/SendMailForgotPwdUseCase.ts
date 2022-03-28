@@ -3,7 +3,7 @@ import { User } from 'src/entities/User';
 import templatePathEmail from 'src/utils/templatePathEmail';
 const { FORGOT_PWD_URL_LINK_URL } = process.env;
 
-class SendForgotMailUseCase {
+class SendMailForgotPwdUseCase {
   constructor(private mailProvider: IMailProvider) {}
 
   async execute(data: User): Promise<void> {
@@ -25,4 +25,4 @@ class SendForgotMailUseCase {
   }
 }
 
-export { SendForgotMailUseCase };
+export { SendMailForgotPwdUseCase };
