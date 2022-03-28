@@ -1,19 +1,15 @@
 import requestAPIGateway from 'src/utils/requestAPIGateway';
-import { CHANGE_PASSWORD_MUTATION } from '../gql/customer.gql';
-import { IGoShirtsProvider, IResponse } from '../IGoShirtsProvider';
-import { IGoShirtsProviderDTO } from '../IGoShirtsProviderDTO';
+import { SUBSCRIBE_NEWSLETTER_MUTATION } from '../gql/customer.gql';
+import { IGoShirtsProvider } from '../IGoShirtsProvider';
 
 class GoShirtsProvider implements IGoShirtsProvider {
-  async changePassword(data: IGoShirtsProviderDTO): Promise<IResponse> {
-    const { userId, newPassword } = data;
-    const variables = { userId, newPassword };
-    const query = CHANGE_PASSWORD_MUTATION;
+  async sendWelcomeNewsletter(email: string): Promise<any> {
+    const variables = { email };
+    const query = SUBSCRIBE_NEWSLETTER_MUTATION;
     const token = null;
+    const data = { variables, query, token };
 
-    const newData = { variables, query, token };
-    const response = await requestAPIGateway({ data: newData });
-
-    return { newPassword: !!response };
+    return await requestAPIGateway({ data });
   }
 }
 
