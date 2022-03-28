@@ -1,11 +1,9 @@
-import { IGoShirtsProviderDTO } from './IGoShirtsProviderDTO';
-
-export interface IResponse {
-  newPassword: boolean;
+export interface IResponseSubscribeNewslleter {
+  subscribe: boolean;
 }
 
 interface IGoShirtsProvider {
-  changePassword(data: IGoShirtsProviderDTO): Promise<IResponse>;
+  sendWelcomeNewsletter(email: string): Promise<IResponseSubscribeNewslleter>;
 }
 
 export { IGoShirtsProvider };
