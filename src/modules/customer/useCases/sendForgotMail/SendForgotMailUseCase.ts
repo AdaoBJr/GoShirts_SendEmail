@@ -1,7 +1,7 @@
 import { IMailProvider } from 'src/providers/MailProvider/IMailProvider';
 import { User } from 'src/entities/User';
 import templatePathEmail from 'src/utils/templatePathEmail';
-const { FORGOT_LINK_URL } = process.env;
+const { FORGOT_PWD_URL_LINK_URL } = process.env;
 
 class SendForgotMailUseCase {
   constructor(private mailProvider: IMailProvider) {}
@@ -13,7 +13,7 @@ class SendForgotMailUseCase {
 
     const variables = {
       name: firstname,
-      link: `${FORGOT_LINK_URL}${token}`,
+      link: `${FORGOT_PWD_URL_LINK_URL}${token}`,
     };
 
     await this.mailProvider.sendMail(
