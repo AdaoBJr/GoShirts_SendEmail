@@ -9,7 +9,7 @@ class SendMailForgotPwdController {
     const { token, body } = parseRequestBody(request);
 
     await this.sendMailForgotPwdUseCase.execute({ token, ...body });
-    return response.status(200).json({ sent: true });
+    return response.status(200).json({ requested: true });
   }
 }
 
