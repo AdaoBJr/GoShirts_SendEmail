@@ -4,7 +4,7 @@ import { sendChangeMailController } from 'src/modules/customer/useCases/sendChan
 
 const emailRouter = Router();
 
-emailRouter.post('/change', (request, response) =>
+emailRouter.post('/reset', (request, response) =>
   sendChangeMailController.handle(request, response)
 );
 
