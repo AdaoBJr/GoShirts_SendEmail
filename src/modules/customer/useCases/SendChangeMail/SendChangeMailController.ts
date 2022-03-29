@@ -9,7 +9,7 @@ class SendChangeMailController {
     const { token, body } = parseRequestBody(request);
 
     await this.sendChangeMailUseCase.execute({ token, ...body });
-    return response.status(200).json({ sent: true });
+    return response.status(200).json({ requested: true });
   }
 }
 
